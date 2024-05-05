@@ -8,11 +8,11 @@
     "margin-top": 14,
     "margin-bottom": 4,
     // Choose the order of the modules
-    "modules-left": ["custom/gentoo", "sway/window", "custom/media"],
-    "modules-center": ["sway/workspaces"],
+    "modules-left": ["custom/gentoo", "hyprland/window", "custom/media"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": ["tray", "pulseaudio", "network", "temperature", "cpu", "memory", "clock", "custom/power"],
     // Modules configuration
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
@@ -33,7 +33,7 @@
         //    "default": " ",
         }
     },
-    "sway/window": {
+    "hyprland/window": {
         "max-length": 50,
     },
     
@@ -50,7 +50,7 @@
     "custom/power": {
         "format": "⏻",
 	"tooltip": false,
-	"on-click": "swaymsg exit",
+	"on-click": "hyprlandmsg exit",
     },
     "keyboard-state": {
         "numlock": true,
@@ -61,10 +61,10 @@
             "unlocked": ""
         }
     },
-    "sway/submap": {
+    "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "sway/scratchpad": {
+    "hyprland/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
