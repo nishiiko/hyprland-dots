@@ -50,7 +50,7 @@
     "custom/power": {
         "format": "⏻",
 	"tooltip": false,
-	"on-click": "hyprlandmsg exit",
+	"on-click": "hyprctl dispatch exit",
     },
     "keyboard-state": {
         "numlock": true,
