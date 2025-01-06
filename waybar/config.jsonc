@@ -1,0 +1,162 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    // "height": 60, // Waybar height (to be removed for auto height)
+    "width": 1920, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    "margin-top": 0,
+    "margin-bottom": 0,
+    // Choose the order of the modules
+    "modules-left": [
+		"wlr/taskbar",
+        "tray",
+		"custom/waybar-scrolling-mpris"
+	],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+		"privacy",
+		"pulseaudio",
+		"group/hardware",
+        "battery",
+        "clock"
+    ],
+
+	"custom/waybar-scrolling-mpris": {
+	    "format": "{}",
+	    "display-format": "{icon}  {artist} - {title}",
+	    "tooltip-format": "",
+		"on-click": "playerctl play-pause",
+	    "on-click-right": "playerctl next",
+		"on-click-middle": "playerctl previous",
+	    "exec": "~/.config/waybar/scripts/waybar-scrolling-mpris ~/.config/waybar/config.jsonc",
+	    "icons": {
+	        "Paused": "",
+	        "Playing": "",
+	        "Stopped": "  Stopped"
+	    },
+	    "length": 30
+	},
+	
+
+	"group/hardware": {
+		"orientation": "horizontal",
+		"modules": [
+			"cpu",
+			"temperature"
+		]
+	},
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "warp-on-scroll": false
+	},
+	
+	"wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 24,
+    "icon-theme": "Colloid-Purple-Dark",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
+	},
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "tray": {
+        "icon-size": 24,
+        "spacing": 10,
+    	"icon-theme": "Colloid-Purple-Dark"
+	},
+    
+    "clock": {
+        "timezone": "Europe/London",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M}",
+	"format-alt": "{:%Y-%m-%d}"
+    },
+    
+    "cpu": {
+        "format": "{usage:02}%   ",
+        "tooltip": false,
+	"interval": 2
+    },
+    
+    "memory": {
+        "interval": 1,
+        "format": "{}% "
+    },
+    
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 75,
+	"interval": 2,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}  {power:2.1f}W",
+        "format-charging": "{capacity}%  {power:2.1f}W",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}  {power:2.1f}W",
+        "design-capacity": true,
+		// "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 2
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} ",
+        "format-bluetooth-muted": " {icon} ",
+        "format-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
