@@ -1,3 +1,6 @@
+these are old dots for a raiden theme
+thbese are probably very brojken now
+
 # hyprland-dots
 these are my dots, they will probably not work at all on your system without tons of troubleshooting\
 this is also for gentoo so some stuff might not make sense for u
