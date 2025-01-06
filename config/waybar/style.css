@@ -1,0 +1,103 @@
+* {
+    font-family: Ubuntu Mono, JetBrainsMono Nerd Font;
+    	font-size: 20px;
+	font-weight: bold;
+	border: none;
+}
+
+@import "colours.css";
+
+tooltip {
+    border-radius: 15px;
+    margin: 10px;
+}
+
+
+window#waybar {
+    background-color: alpha(@bar-bg, 0.25);
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 15px;
+}
+
+button:hover {
+    background: inherit;
+}
+
+#workspaces button {
+    padding: 0px 3px;
+    margin: 5px 3px;
+    color: alpha(@inactive-text, 1);
+    transition: all 0.2s cubic-bezier(0,0,.2,1)
+}
+
+#workspaces button:hover {
+    color: alpha(@hover-text, 1);
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    padding: 0px 15px;
+    color: alpha(@active-text, 1);
+    background-color: @button-hl;
+    transition: all 0.25s cubic-bezier(0,0,.2,1)
+}
+
+#workspaces button.urgent {
+    background-color: inherit;
+}
+
+#battery.charging, #battery.plugged {
+    color: #BBFFBB;
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    color: #ba0000;
+}
+
+#custom-waybar-scrolling-mpris,
+#custom-spotify,
+#custom-media,
+#custom-power,
+#wireplumber,
+#pulseaudio,
+#scratchpad,
+#hardware,
+#network,
+#battery,
+#privacy,
+#taskbar,
+#clock,
+#tray,
+#workspaces {
+	background-color: @module-bg;
+    	border-radius: 20px;
+	border: 4px solid alpha(#000000, 0.6);
+	color: @active-text;
+	margin: 6px 4px 8px 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#temperature.critical {
+    background-color: transparent;
+    color: #ba0000;
+}
+
+#taskbar.empty {
+	background: transparent;
+	border: transparent;
+	margin: 0px;
+	padding: 0px
+}
+
+.modules-left {
+	margin-left: 6px;
+}
+.modules-right {
+	margin-right: 6px;
+}
