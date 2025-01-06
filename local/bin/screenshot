@@ -1,0 +1,37 @@
+#!/bin/bash
+
+filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
+if [[ $1 == "" ]]; then
+    echo "
+    Flags:
+    --region
+    --display (single monitor)
+    --all (all monitors)
+    
+    why are you using this in your terminal anyways
+    "
+    exit
+fi
+
+if [ $1 == '--region' ]; then
+    grim -l 0 -g "$(slurp -b 00000088 -w 0)" - | magick - -shave 4x4 PNG:$filename
+    wl-copy < $filename
+
+elif [ $1 == '--display' ]; then
+    grim -l 0 -o DP-2 $filename
+    wl-copy < $filename
+
+elif [ $1 == '--all' ]; then
+    grim -l 0 $filename
+    wl-copy < $filename
+else
+    echo "
+    Flags:
+    --region
+    --display (single monitor)
+    --all (all monitors)
+
+    why are you using this in your terminal anyways
+    "
+    exit
+fi
