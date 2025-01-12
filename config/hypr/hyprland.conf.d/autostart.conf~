@@ -1,6 +1,5 @@
-exec-once = /usr/libexec/xdg-desktop-portal-hyprland &
 exec-once = /usr/libexec/hyprpolkitagent &
-exec-once = gentoo-pipewire-launcher restart &
+exec-once = gentoo-pipewire-launcher &
 exec-once = otd-daemon &
 exec-once = swww-daemon &
 exec-once = qpwgraph -m &

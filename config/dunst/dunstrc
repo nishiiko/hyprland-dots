@@ -2,10 +2,10 @@
 corner_radius = 16
 gap_size = 10
 frame_width = 4
-offset = (20,20)
+offset = (0,-48)
 font = Ubuntu Mono 18
 monitor = 1
-origin = bottom-left
+origin = top-center
 width = 450
 height = (0, 300)
 icon_corner_radius = 12

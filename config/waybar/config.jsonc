@@ -56,11 +56,12 @@
 	"wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 24,
-    "icon-theme": "Colloid-Purple-Dark",
+    "icon-theme": ["Colloid-Purple-Dark", "hicolor"],
     "tooltip-format": "{title}",
     "on-click": "activate",
-    "on-click-middle": "close"
-	},
+    "on-click-middle": "close",
+    "sort-by-app-id": true
+},
 
     "keyboard-state": {
         "numlock": true,
