@@ -10,7 +10,7 @@
 @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
 @define-color text-color rgb(255, 255, 255);
 @define-color text-color-disabled rgb(150, 150, 150);
-@define-color bg-selected rgb(0, 128, 255);
+@define-color bg-selected rgb(60, 100, 150);
 
 * {
   font-family: "UbuntuMono Nerd Font";
@@ -341,7 +341,7 @@
   font-size: initial;
   border-radius: 20px;
   background: @noti-bg;
-  border: 2px solid @noti-border-color;
+  border: 1px solid @noti-border-color;
   box-shadow: none;
 }
 
@@ -410,6 +410,7 @@
 .widget-mpris > box > button {
   /* Change player side buttons */
   color: #AAAAAA;
+  background-color: transparent;
 }
 
 .widget-mpris > box > button:disabled {
