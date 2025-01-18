@@ -20,7 +20,7 @@ window {
 	border: 4px;
 	border-color: @border;
 	border-radius: 30px;
-	height: 55%;
+	height: 57%;
 	width: 63%;
 }
 
@@ -51,6 +51,7 @@ listview {
 }
 
 mode-switcher {	
+	padding: 8px 0px 0px 0px;
 	background-color: transparent;
 }
 
