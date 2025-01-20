@@ -20,8 +20,8 @@ window {
 	border: 4px;
 	border-color: @border;
 	border-radius: 30px;
-	height: 57%;
-	width: 63%;
+	height: 550px;
+	width: 1100px;
 }
 
 mainbox {
@@ -36,7 +36,7 @@ omori {
 }
 
 listbox {
-	width: 18%;
+	width: 250px;
 	padding: 10px;
 	expand: false;
 	orientation: vertical;
@@ -46,12 +46,12 @@ listbox {
 
 listview {
 	background-color: transparent;
+	padding: 10px;
 	expand: false;
-	lines: 8;
+	lines: 7;
 }
 
 mode-switcher {	
-	padding: 8px 0px 0px 0px;
 	background-color: transparent;
 }
 
