@@ -1,0 +1,45 @@
+{
+    "$schema": "~/.config/fastfetch/json_schema.json",
+    "logo": {
+		"source": "~/.config/fastfetch/gentoo.txt",
+        "type": "auto",
+		"color": {
+			"1": "white",
+			"2": "magenta"
+    	}
+	},
+    "display": {
+        "key": {
+            "width": 11
+        },
+        "bar": {
+            "charElapsed": "=",
+            "charTotal": "-",
+            "width": 13
+        },
+        "percent": {
+            "type": 2 
+        }
+    },
+    "modules": [
+		"title",
+        "separator",
+		{
+			"type": "os",
+			"key": "Distro"
+		},
+		"kernel",
+		"wm",
+		"packages",
+		"memory",
+        {
+            "type": "disk",
+            "folders": "/",
+			"key": "Storage"
+		},
+        {
+            "type": "colors",
+            "symbol": "circle"
+        }
+    ]
+}
