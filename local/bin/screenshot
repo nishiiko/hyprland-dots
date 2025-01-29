@@ -5,7 +5,7 @@ flags () {
 Flags:
     
     --region (Screenshots a selected region)
-    --display (Screenshots currently focused monitor)
+    --display (Screenshots current active monitor)
     --all (Screenshots all monitors/entire desktop)
     
 why are you using this in your terminal anyways
@@ -24,11 +24,11 @@ if [ $1 == '--region' ]; then
     wl-copy < $filename
 	notify-send "Region screenshot" "Saved to $filename" --icon=$filename
 
-elif [ $1 == '--display' ]; then
-    grim -l 0 -o eDP-1 $filename
+elif [ $1 == '--display' ]; then    
+	grim -l 0 -o "$(hyprctl activeworkspace -j | jq -r '.monitor')" $filename
     wl-copy < $filename
 	notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename
-
+	
 elif [ $1 == '--all' ]; then
     grim -l 0 $filename
     wl-copy < $filename
