@@ -13,6 +13,10 @@ why are you using this in your terminal anyways
 	exit
 }
 
+sound () {
+	paplay $HOME/.config/swaync/ding.wav
+}
+
 filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
 
 if [[ $1 == "" ]]; then
@@ -20,19 +24,33 @@ if [[ $1 == "" ]]; then
 fi
 
 if [ $1 == '--region' ]; then
-    grim -l 0 -g "$(slurp -b 00000088 -w 0)" - | magick - -shave 4x4 PNG:$filename
-    wl-copy < $filename
-	notify-send "Region screenshot" "Saved to $filename" --icon=$filename
+	
+	hyprpicker -r -z &
+    sleep 0.2
+    HYPRPICKER_PID=$!
+	
+    grim -l 0 -g "$(slurp -b 00000088 -w 0)" - | magick - -shave 4x4 PNG:$filename	
+	kill $HYPRPICKER_PID
+	
+	if [ ! -f "$filename" ]; then
+		exit
+	fi
+	
+	wl-copy < $filename
+	notify-send "Region screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u low
+	sound	
 
 elif [ $1 == '--display' ]; then    
 	grim -l 0 -o "$(hyprctl activeworkspace -j | jq -r '.monitor')" $filename
     wl-copy < $filename
-	notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename
-	
+	notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u low
+	sound
+
 elif [ $1 == '--all' ]; then
     grim -l 0 $filename
     wl-copy < $filename
-	notify-send "Desktop screenshot" "Saved to $filename" --icon=$filename
+	notify-send "Desktop screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u low
+	sound
 
 else
 	flags
