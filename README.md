@@ -11,5 +11,8 @@ swaync\
 waybar\
 grim\
 slurp\
-rofi\
+rofi
+
+optional (?) stuff\
+hyprpicker\
 there's probably other stuff figure it out yourself i'm lazy
