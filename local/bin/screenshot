@@ -26,7 +26,7 @@ fi
 if [ $1 == '--region' ]; then
 	
 	hyprpicker -r -z &
-    sleep 0.2
+    sleep 0.05
     HYPRPICKER_PID=$!
 	
     grim -l 0 -g "$(slurp -b 00000088 -w 0)" - | magick - -shave 4x4 PNG:$filename	
