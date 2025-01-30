@@ -10,6 +10,16 @@ else
 fi
 
 if [ $HELPME == "y" ]; then
+	echo sleeping for 5 seconds so you can still ctrl c just incase
+	sleep 1
+	echo sleeping for 4 seconds so you can still ctrl c just incase
+	sleep 1
+	echo sleeping for 3 seconds so you can still ctrl c just incase
+	sleep 1
+	echo sleeping for 2 seconds so you can still ctrl c just incase
+	sleep 1
+	echo sleeping for 1 seconds so you can still ctrl c just incase
+	sleep 1
 	cp -v config/* -r $HOME/.config
 	cp -v local/* -r $HOME/.local
 	cp -v Pictures/* -r $HOME/Pictures
