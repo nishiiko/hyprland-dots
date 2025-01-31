@@ -14,7 +14,7 @@ why are you using this in your terminal anyways
 }
 
 sound () {
-	paplay $HOME/.config/swaync/ding.wav
+	paplay $HOME/.config/swaync/ding.wav --volume=35000
 }
 
 filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
