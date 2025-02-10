@@ -2,7 +2,7 @@
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "top",
   "positionY": "bottom",
-  "layer": "overlay",
+  "layer": "top",
   "control-center-layer": "overlay",
   "layer-shell": true,
   "cssPriority": "application",
@@ -30,7 +30,7 @@
   "hide-on-action": true,
   "script-fail-notify": true,
   "scripts": {
-    "example-script": {
+    "Sound": {
       "exec": "bash /home/nishi/.config/swaync/scripts/notification.sh",
       "urgency": "Normal"
     }
