@@ -1,8 +1,5 @@
 #!/usr/bin/bash
 
-killall pipewire wireplumber pipewire-pulse;
-sleep 0.2s;
-
 pipewire &
 wireplumber &
 pipewire-pulse &
