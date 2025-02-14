@@ -13,7 +13,7 @@ if [ "$lockedIn" = 1 ] ; then
         "
     killall waybar
     swaync-client -dn
-    notify-send "Locked in." "Ojousama, it's time to do your work." -u "Critical"
+    notify-send "Locked in." "Do your work." -u "Critical"
     exit
 elif [ "$lockedIn" = 0 ] ; then
     notify-send "Dilly-dallying >v<" "gamer time yippeeeeeee" -u "Critical"
