@@ -3,6 +3,10 @@ $HOME/.config
 $HOME/.local
 $HOME/Pictures
 
+i dont recommend you actually use this, i made this
+for myself where i intend to always nuke my previous config files
+please backup your current dots first
+
 are you sure you want to run this (y/n): " HELPME
 
 if [ $HELPME == "y" ]; then
