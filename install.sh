@@ -26,6 +26,7 @@ if [ $HELPME == "y" ]; then
 	sleep 1
 	echo sleeping for 1 second so you can still ctrl c just incase
 	sleep 1
+        chmod +x config/hypr/extra/lockedIn.sh
 	chmod +x config/hypr/extra/pipewire.sh
     chmod +x config/hypr/extra/xdph.sh
     chmod +x local/bin/screenshot
