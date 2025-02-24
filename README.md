@@ -11,7 +11,8 @@ swaync\
 waybar\
 grim\
 slurp\
-rofi
+rofi\
+imagemagick
 
 optional (?) stuff\
 hyprpicker
