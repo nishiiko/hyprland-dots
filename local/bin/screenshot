@@ -24,11 +24,11 @@ sound () {
 	paplay $HOME/.config/swaync/ding.wav --volume=35000
 }
 
+echo "if youre reading this, just delete this file" > $lockpath
+
 if [[ $1 == "" ]]; then
 	flags
 fi
-
-touch $lockpath
 
 if [ $1 == '--region' ]; then
 	
