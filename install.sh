@@ -34,3 +34,4 @@ if [ $confirm == "y" ]; then
     echo
     echo done
 fi
+hyprctl reload 2>/dev/null
