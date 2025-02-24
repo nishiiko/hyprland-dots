@@ -1,4 +1,10 @@
 #!/bin/bash
+filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
+lockpath=$HOME/.screenshotLock 
+
+if [ -f $lockpath ]; then
+    exit
+fi
 
 flags () {
     echo "
@@ -10,6 +16,7 @@ Flags:
     
 why are you using this in your terminal anyways
 	"
+    rm -f $lockpath 
 	exit
 }
 
@@ -17,11 +24,11 @@ sound () {
 	paplay $HOME/.config/swaync/ding.wav --volume=35000
 }
 
-filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
-
 if [[ $1 == "" ]]; then
 	flags
 fi
+
+touch $lockpath
 
 if [ $1 == '--region' ]; then
 	
@@ -29,29 +36,32 @@ if [ $1 == '--region' ]; then
     sleep 0.05
     HYPRPICKER_PID=$!
 	
-    grim -l 0 -g "$(slurp -b 00000088 -w 0)" $filename	
-	kill $HYPRPICKER_PID
+    grim -l 0 -g "$(slurp -d -c ffffffff -b 000000bb -w 3)" - | magick - -shave 4x4 PNG:$filename
+    kill $HYPRPICKER_PID
 	
 	if [ ! -f "$filename" ]; then
+        rm -f $lockpath
 		exit
 	fi
 	
 	wl-copy < $filename
-	notify-send "Region screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u low
-	sound	
+	notify-send "Region screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical
+    sound
 
 elif [ $1 == '--display' ]; then    
 	grim -l 0 -o "$(hyprctl activeworkspace -j | jq -r '.monitor')" $filename
     wl-copy < $filename
-	notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u low
-	sound
+	notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical
+    sound
 
 elif [ $1 == '--all' ]; then
     grim -l 0 $filename
     wl-copy < $filename
-	notify-send "Desktop screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u low
-	sound
+	notify-send "Desktop screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical 
+    sound
 
 else
 	flags
 fi
+
+rm -f $lockpath
