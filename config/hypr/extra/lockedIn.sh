@@ -6,16 +6,24 @@ if [ "$lockedIn" = 1 ] ; then
         #keyword decoration:blur:enabled 0;\
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
+        keyword general:border_size 0;\
         keyword decoration:rounding 0;\
-        keyword animations:enabled 0;\
         keyword decoration:active_opacity 1;\
-        keyword decoration:inactive_opacity 1
+        keyword decoration:inactive_opacity 1;\
+        keyword decoration:dim_inactive 1;\
+        keyword decoration:dim_strength 0.4
         "
     killall waybar
     swaync-client -dn
     notify-send "Locked in." "Do your work." -u "Critical"
+    
+    sleep 0.4
+
+    hyprctl keyword animations:enabled 0
+    
     exit
 elif [ "$lockedIn" = 0 ] ; then
+    hyprctl keyword animations:enabled 1
     notify-send "Dilly-dallying >v<" "gamer time yippeeeeeee" -u "Critical"
     swaync-client -df
     waybar &

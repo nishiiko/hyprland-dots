@@ -10,16 +10,15 @@
     // Choose the order of the modules
     "modules-left": [
 		"wlr/taskbar",
-        "tray",
 		"network"
 	],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-		"privacy",
+		"tray",
+        "privacy",
 		"pulseaudio",
-		"group/hardware",
         "battery",
         "clock"
     ],
