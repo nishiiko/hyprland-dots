@@ -14,6 +14,6 @@ slurp\
 rofi
 
 optional (?) stuff\
-hyprpicker\
+hyprpicker
 
 if someething no worky just lmk
