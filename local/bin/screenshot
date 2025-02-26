@@ -22,17 +22,17 @@ case $1 in
 	    	exit
 	    fi
 	    
-	    notify-send "Region screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical
+	    $(notify-send "Region screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
         ;;
 
     --display)
         grim -l 0 -o "$(hyprctl activeworkspace -j | jq -r '.monitor')" $filename
-	    notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical
+	    $(notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
         ;;
 
     --all)  
         grim -l 0 $filename
-	    notify-send "Desktop screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical 
+	    $(notify-send "Desktop screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &  
         ;;
 
     *)
