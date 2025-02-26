@@ -6,25 +6,6 @@ if [ -f $lockpath ]; then
     exit
 fi
 
-flags () {
-    echo "
-Flags:
-    
-    --region (Screenshots a selected region)
-    --display (Screenshots current active monitor)
-    --all (Screenshots all monitors/entire desktop)
-    
-why are you using this in your terminal anyways
-	"
-    notify-send "Screenshot Error" "Flags written incorrectly"
-    rm -f $lockpath 
-	exit
-}
-
-sound () {
-	paplay $HOME/.config/swaync/ding.wav --volume=35000
-}
-
 echo "if youre reading this, just delete this file" > $lockpath
 
 case $1 in
@@ -55,9 +36,21 @@ case $1 in
         ;;
 
     *)
-        flags
+        echo "
+    Flags:
+        
+        --region (Screenshots a selected region)
+        --display (Screenshots current active monitor)
+        --all (Screenshots all monitors/entire desktop)
+        
+    why are you using this in your terminal anyways
+    	"
+        notify-send "Screenshot Error" "Flags written incorrectly"
+        rm -f $lockpath 
+        exit
     ;;
 esac
-sound &
+
+paplay $HOME/.config/swaync/ding.wav --volume=35000 &
 wl-copy < $filename &
 rm -f $lockpath
