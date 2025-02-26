@@ -6,7 +6,6 @@ i like gentoo
 # deps (probably gonna forget a bunch of stuff)
 hyprland (duh)\
 hyprlock\
-hyprbars (plugin)\
 foot\
 swww\
 swaync\
@@ -17,6 +16,7 @@ rofi\
 imagemagick
 
 optional (?) stuff\
-hyprpicker
+hyprpicker\
+hyprbars (plugin)
 
 if someething no worky just lmk
