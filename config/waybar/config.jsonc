@@ -30,10 +30,6 @@
 			"temperature"
 		]
 	},
-    "hyprland/workspaces": {
-        "disable-scroll": false,
-        "warp-on-scroll": false
-	},
 	
 	"wlr/taskbar": {
     	"format": "{icon}",
