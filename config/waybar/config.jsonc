@@ -34,8 +34,8 @@
 	"wlr/taskbar": {
     	"format": "{icon}",
     	"icon-size": 24,
-    	"icon-theme": ["Colloid-Purple-Dark", "hicolor"],
-    	"tooltip-format": "{title}",
+    	"icon-theme": "Colloid-Purple-Dark",
+        "tooltip-format": "{title}",
     	"on-click": "activate",
     	"on-click-middle": "close",
     	"sort-by-app-id": true
@@ -61,8 +61,7 @@
 
     "tray": {
         "icon-size": 24,
-        "spacing": 10,
-    	"icon-theme": "Colloid-Purple-Dark"
+        "spacing": 10
 	},
     
     "clock": {
