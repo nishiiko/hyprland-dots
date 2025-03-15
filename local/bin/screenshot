@@ -14,7 +14,7 @@ case $1 in
         sleep 0.05
         HYPRPICKER_PID=$!
 	
-        grim -l 0 -g "$(slurp -d -c ffffffff -b 000000bb -w 3)" - | magick - -shave 4x4 PNG:$filename
+        grim -g "$(slurp -d -c ffffffff -b 000000bb -w 3)" - | magick - -shave 4x4 PNG:$filename
         kill $HYPRPICKER_PID
 	    
 	    if [ ! -f "$filename" ]; then
@@ -26,12 +26,12 @@ case $1 in
         ;;
 
     --display)
-        grim -l 0 -o "$(hyprctl activeworkspace -j | jq -r '.monitor')" $filename
+        grim -o "$(hyprctl activeworkspace -j | jq -r '.monitor')" $filename
 	    $(notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
         ;;
 
     --all)  
-        grim -l 0 $filename
+        grim $filename
 	    $(notify-send "Desktop screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &  
         ;;
 
