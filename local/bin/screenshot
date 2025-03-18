@@ -1,6 +1,7 @@
 #!/bin/bash
 filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
 lockpath=$HOME/.screenshotLock 
+tmpregion=$HOME/.tmpRegion
 
 if [ -f $lockpath ]; then
     exit
@@ -14,9 +15,12 @@ case $1 in
         sleep 0.1
         HYPRPICKER_PID=$!
 	
-        grim -l 1 -g "$(slurp -d -c ffffffff -b 000000bb -w 3)" - | magick - -shave 4x4 PNG:$filename
+        grim -l 1 -g "$(slurp -d -c ffffffff -b 000000bb -w 3)" $tmpregion 
+        nohup magick $tmpregion -shave 4x4 PNG:$filename &
+        
         kill $HYPRPICKER_PID
-	    
+	    wait
+
 	    if [ ! -f "$filename" ]; then
             rm -f $lockpath
 	    	exit
@@ -54,5 +58,6 @@ esac
 paplay $HOME/.config/swaync/ding.wav --volume=35000 &
 wl-copy < $filename &
 rm -f $lockpath
+rm -f $tmpregion
 
-killall -e hyprpicker
+killall -e hyprpicker 2> /dev/null
