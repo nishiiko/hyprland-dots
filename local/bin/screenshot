@@ -11,7 +11,7 @@ echo "if youre reading this, just delete this file" > $lockpath
 case $1 in
     --region)
         hyprpicker -r -z &
-        sleep 0.05
+        sleep 0.1
         HYPRPICKER_PID=$!
 	
         grim -g "$(slurp -d -c ffffffff -b 000000bb -w 3)" - | magick - -shave 4x4 PNG:$filename
