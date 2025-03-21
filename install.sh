@@ -23,6 +23,7 @@ if [ $confirm == "y" ]; then
         sleep 1
         : $((countdown--))
     done
+    chmod +x config/hypr/extra/dwt_toggle.sh
     chmod +x config/hypr/extra/lockedIn.sh
     chmod +x config/hypr/extra/pipewire.sh
     chmod +x config/hypr/extra/xdph.sh
