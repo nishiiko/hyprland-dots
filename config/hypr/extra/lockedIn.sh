@@ -24,7 +24,7 @@ elif [ "$lockedIn" = 0 ] ; then
     hyprctl --batch "\
         keyword decoration:shadow:enabled 1;\
         #keyword decoration:blur:enabled 1;\
-        keyword general:gaps_in 5;\
+        keyword general:gaps_in 7;\
         keyword general:gaps_out 15;\
         keyword general:border_size 4;\
         keyword decoration:rounding 16;\
