@@ -15,7 +15,7 @@ case $1 in
         sleep 0.1
         HYPRPICKER_PID=$!
 	
-        grim -l 1 -g "$(slurp -d -c ffffffff -b 000000bb -w 3)" $tmpregion 
+        grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
         nohup magick $tmpregion -shave 4x4 PNG:$filename &
         
         kill $HYPRPICKER_PID
