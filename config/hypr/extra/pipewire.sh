@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+killall pipewire pipewire-pulse wireplumber ;
+
 pipewire &
 pipewire-pulse &
 wireplumber &
