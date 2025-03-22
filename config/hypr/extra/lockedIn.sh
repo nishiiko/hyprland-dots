@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 lockedIn=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
 if [ "$lockedIn" = 1 ] ; then
-    hyprpm disable hyprbars
     hyprctl --batch "\
         keyword decoration:shadow:enabled 0;\
         #keyword decoration:blur:enabled 0;\
@@ -31,7 +30,6 @@ elif [ "$lockedIn" = 0 ] ; then
         keyword plugin:hyprbars:bar_height 30;\
         keyword plugin:hyprbars:bar_padding 14;\
     " 
-    hyprpm enable hyprbars
     notify-send "Dilly-dallying >v<" "gamer time yippeeeeeee" -u "Critical"
     swaync-client -df
     waybar &
