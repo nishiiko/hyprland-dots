@@ -6,8 +6,8 @@ i like gentoo
 # deps (probably gonna forget a bunch of stuff)
 hyprland (duh)\
 hyprlock\
+hyprpaper\
 foot\
-swww\
 swaync\
 waybar\
 rofi\
