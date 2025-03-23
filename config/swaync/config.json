@@ -1,7 +1,7 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "center",
-  "positionY": "top",
+  "positionY": "bottom",
   "layer": "overlay",
   "control-center-layer": "overlay",
   "layer-shell": true,
