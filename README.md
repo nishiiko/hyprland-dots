@@ -13,6 +13,8 @@ waybar\
 rofi\
 hyprbars (plugin)
 
+you will have to adjust the swaync control panel margins if youre not on 1920x1080
+
 ## stuff for screenshot script
 grim\
 slurp\
