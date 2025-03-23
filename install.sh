@@ -23,6 +23,9 @@ if [ $confirm == "y" ]; then
         sleep 1
         : $((countdown--))
     done
+    
+    sed -i "s/user/$USER/g" config/swaync/config.json
+
     chmod +x config/swaync/scripts/notification.sh
     chmod +x config/hypr/extra/dwt_toggle.sh
     chmod +x config/hypr/extra/lockedIn.sh
