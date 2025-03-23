@@ -91,15 +91,15 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}  {power:2.1f}W",
-        "format-charging": "{capacity}%  {power:2.1f}W",
-        "format-plugged": "{capacity}% ",
+        "format": "{capacity}% {icon} ",
+        "format-charging": "{capacity}% {icon} ",
+        "format-plugged": "{capacity}% {icon} ",
         "format-alt": "{time} {icon}  {power:2.1f}W",
         "design-capacity": true,
 		// "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "interval": 2
+        "interval": 1
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface

@@ -63,6 +63,7 @@ button:hover {
 #pulseaudio,
 #scratchpad,
 #hardware,
+#language,
 #network,
 #battery,
 #privacy,
@@ -70,13 +71,14 @@ button:hover {
 #clock,
 #tray,
 #workspaces {
-	background-color: @module-bg;
-    	border-radius: 20px;
-	border: 4px solid alpha(#000000, 0.6);
-	color: @active-text;
-	margin: 6px 4px 8px 4px;
-	padding-left: 10px;
-	padding-right: 10px;
+    background-color: @module-bg;
+    border-radius: 20px;
+    border: 4px solid alpha(#000000, 0.6);
+    color: @active-text;
+    margin: 6px 4px 8px 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all 0.4s cubic-bezier(0,0,.2,1)
 }
 
 #temperature.critical {
