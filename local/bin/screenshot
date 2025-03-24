@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
 lockpath=$HOME/.screenshotLock 
 tmpregion=$HOME/.tmpRegion
@@ -16,7 +16,7 @@ case $1 in
         HYPRPICKER_PID=$!
 	
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
-        nohup magick $tmpregion -shave 4x4 PNG:$filename &
+        nohup >&/dev/null magick $tmpregion -shave 4x4 PNG:$filename &
         
         kill $HYPRPICKER_PID
         wait
