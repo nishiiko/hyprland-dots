@@ -1,0 +1,18 @@
+[window]
+opacity = 0.85
+padding = { x = 10, y = 10 } 
+
+[font]
+normal = { family = "UbuntuMono Nerd Font", style = "bold" }
+size = 15
+
+[colors]
+draw_bold_text_with_bright_colors = true
+[colors.primary]
+background = "#37274F"
+
+[cursor]
+style = { shape = "underline", blinking = "always" }
+vi_mode_style = { shape = "underline", blinking = "always" }
+
+thickness = 0.3
