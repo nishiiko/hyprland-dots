@@ -11,7 +11,8 @@ foot\
 swaync\
 waybar\
 rofi\
-hyprbars (plugin)
+[hyprbars (plugin)](https://github.com/hyprwm/hyprland-plugins/tree/main/hyprbars)\
+[dynamic-cursors (plugin)](https://github.com/VirtCode/hypr-dynamic-cursors)
 
 you will have to adjust the swaync control panel margins if youre not on 1920x1080
 
