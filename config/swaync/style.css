@@ -1,6 +1,6 @@
-@define-color cc-bg rgba(39, 45, 75, 0.7);
+@define-color cc-bg rgba(39, 45, 75, 0.85);
 @define-color noti-border-color rgba(157, 189, 255, 1);
-@define-color noti-bg rgba(39, 45, 75, 0.6);
+@define-color noti-bg rgba(39, 45, 75, 0.85);
 @define-color noti-bg-opaque rgb(39, 45, 75);
 @define-color noti-bg-darker rgb(38, 38, 38);
 @define-color noti-bg-hover rgba(39, 45, 75, 0.9);
@@ -25,7 +25,7 @@
 }
 
 .notification-row .notification-background {
-  padding: 0px 0px 15px;
+  padding: 0px 15px 15px;
 }
 
 .notification-row .notification-background .close-button {

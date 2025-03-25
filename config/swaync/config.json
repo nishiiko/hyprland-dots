@@ -1,8 +1,8 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "positionX": "center",
+  "positionX": "left",
   "positionY": "bottom",
-  "layer": "overlay",
+  "layer": "top",
   "control-center-layer": "overlay",
   "layer-shell": true,
   "cssPriority": "application",
@@ -32,7 +32,7 @@
   "script-fail-notify": true,
   "scripts": {
     "Sound": {
-      "exec": "bash /home/user/.config/swaync/scripts/notification.sh",
+      "exec": "bash /home/nishi/.config/swaync/scripts/notification.sh",
       "urgency": "Normal"
     }
   },
