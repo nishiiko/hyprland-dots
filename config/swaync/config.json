@@ -26,13 +26,13 @@
   "notification-window-height": 500,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
-  "transition-time": 150,
+  "transition-time": 400,
   "hide-on-clear": false,
   "hide-on-action": true,
   "script-fail-notify": true,
   "scripts": {
     "Sound": {
-      "exec": "bash /home/user/.config/swaync/scripts/notification.sh",
+      "exec": "bash /home/nishi/.config/swaync/scripts/notification.sh",
       "urgency": "Normal"
     }
   },
