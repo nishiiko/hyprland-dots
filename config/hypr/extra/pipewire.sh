@@ -1,11 +1,13 @@
 #!/usr/bin/bash
 
-killall pipewire pipewire-pulse wireplumber -w ;
+if ! pstree -s $PPID | grep -Fwq systemd; then
+    killall pipewire pipewire-pulse wireplumber -w ;
 
-pipewire &
-pipewire-pulse &
+    pipewire &
+    pipewire-pulse &
 
-sleep 1s
-wireplumber &
+    sleep 1s
+    wireplumber &
+fi
 
 paplay --volume=65535 $HOME/.config/hypr/extra/heal.wav &
