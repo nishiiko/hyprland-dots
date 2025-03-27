@@ -32,7 +32,7 @@
   "script-fail-notify": true,
   "scripts": {
     "Sound": {
-      "exec": "bash /home/nishi/.config/swaync/scripts/notification.sh",
+      "exec": "bash /home/user/.config/swaync/scripts/notification.sh",
       "urgency": "Normal"
     }
   },
