@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! pstree -s $PPID | grep -Fwq systemd; then
+if ! echo $(ls -l /sbin/init) | grep systemd; then
     killall wireplumber pipewire-pulse pipewire
 
     pipewire &
