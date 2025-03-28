@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 if ! pstree -s $PPID | grep -Fwq systemd; then
-    killall pipewire pipewire-pulse wireplumber -w ;
+    killall pipewire pipewire-pulse wireplumber;
 
     pipewire &
     pipewire-pulse &
