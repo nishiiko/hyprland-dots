@@ -8,7 +8,7 @@
 @import "colours.css";
 
 tooltip {
-    border-radius: 15px;
+    border-radius: 16px;
     margin: 10px;
 }
 
@@ -20,7 +20,7 @@ window#waybar {
 button {
     box-shadow: inset 0 -3px transparent;
     border: none;
-    border-radius: 15px;
+    border-radius: 16px;
 }
 
 button:hover {
@@ -72,7 +72,7 @@ button:hover {
 #tray,
 #workspaces {
     background-color: @module-bg;
-    border-radius: 20px;
+    border-radius: 25px;
     border: 4px solid alpha(#000000, 0.6);
     color: @active-text;
     margin: 6px 4px 8px 4px;
