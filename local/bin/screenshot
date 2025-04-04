@@ -12,7 +12,7 @@ echo "if youre reading this, just delete this file" > $lockpath
 case $1 in
     --region)
         hyprpicker -r -z &
-        sleep 0.1
+        sleep 0.2
         HYPRPICKER_PID=$!
 	
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
@@ -23,6 +23,7 @@ case $1 in
 
         if [ ! -f "$filename" ]; then
             rm -f $lockpath
+            rm -f $tmpregion
             exit
         fi
 	    
