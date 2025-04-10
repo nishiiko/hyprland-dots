@@ -11,10 +11,12 @@ echo "if youre reading this, just delete this file" > $lockpath
 
 case $1 in
     --region)
-        hyprpicker -r -z &
-        sleep 0.2
-        HYPRPICKER_PID=$!
-	
+        
+        while ! pgrep -x "hyprpicker" > /dev/null; do
+            hyprpicker -r -z &
+            HYPRPICKER_PID=$!
+	    done
+
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
         nohup >&/dev/null magick $tmpregion -shave 4x4 PNG:$filename &
         
