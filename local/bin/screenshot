@@ -16,7 +16,7 @@ case $1 in
         while ! pgrep -x "hyprpicker" > /dev/null; do
             hyprpicker -r -z &
             HYPRPICKER_PID=$!
-	    done
+        done
 
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
         nohup >&/dev/null magick $tmpregion -shave 4x4 PNG:$filename &
