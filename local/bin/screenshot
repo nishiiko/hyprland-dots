@@ -2,6 +2,7 @@
 filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
 lockpath=$HOME/.screenshotLock 
 tmpregion=$HOME/.tmpRegion
+monitor=$(hyprctl activeworkspace -j | jq -r '.monitor')
 
 if [ -f $lockpath ]; then
     exit
@@ -11,10 +12,12 @@ echo "if youre reading this, just delete this file" > $lockpath
 
 case $1 in
     --region)
-        hyprpicker -r -z &
-        sleep 0.1
-        HYPRPICKER_PID=$!
-	
+        
+        while ! pgrep -x "hyprpicker" > /dev/null; do
+            hyprpicker -r -z &
+            HYPRPICKER_PID=$!
+	    done
+
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
         nohup >&/dev/null magick $tmpregion -shave 4x4 PNG:$filename &
         
@@ -23,20 +26,21 @@ case $1 in
 
         if [ ! -f "$filename" ]; then
             rm -f $lockpath
+            rm -f $tmpregion
             exit
         fi
 	    
-        $(notify-send "Region screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
+        $(notify-send "Region Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
         ;;
 
     --display)
-        grim -l 1 -o "$(hyprctl activeworkspace -j | jq -r '.monitor')" $filename
-	    $(notify-send "Monitor screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
+        grim -l 1 -o "$monitor" $filename
+	    $(notify-send "$monitor Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
         ;;
 
     --all)  
         grim -l 1 $filename
-        $(notify-send "Desktop screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &  
+        $(notify-send "Desktop Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &  
         ;;
 
     *)
