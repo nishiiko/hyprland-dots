@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-    "height": 60, // Waybar height (to be removed for auto height)
+    // "height": 60, // Waybar height (to be removed for auto height)
     // "width": 1920, // Waybar width
     "position": "top", // Waybar position (top|bottom|left|right)
     "spacing": 4, // Gaps between modules (4px)
@@ -9,17 +9,17 @@
     "margin-bottom": 0,
     // Choose the order of the modules
     "modules-left": [
-		"wlr/taskbar",
-		"network"
-	],
+        "wlr/taskbar",
+        "network"
+    ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-		"tray",
         "privacy",
-		"pulseaudio",
         "battery",
+        "pulseaudio",
+        "tray",
         "clock"
     ],
     
@@ -37,26 +37,25 @@
             "9": "九",
             "10": "十"
         }
-
     },
 
-	"group/hardware": {
-		"orientation": "horizontal",
-		"modules": [
-			"cpu",
-			"temperature"
-		]
-	},
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "temperature"
+        ]
+    },
 	
-	"wlr/taskbar": {
-    	"format": "{icon}",
-    	"icon-size": 24,
-    	"icon-theme": "Colloid-Purple-Dark",
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 24,
+        "icon-theme": "Colloid-Purple-Dark",
         "tooltip-format": "{title}",
-    	"on-click": "activate",
-    	"on-click-middle": "close",
-    	"sort-by-app-id": true
-},
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "sort-by-app-id": true
+    },
 
     "keyboard-state": {
         "numlock": true,
@@ -78,29 +77,28 @@
 
     "tray": {
         "icon-size": 24,
-        "spacing": 10
-	},
+        "spacing": 8
+    },
     
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M}",
-	"format-alt": "{:%Y-%m-%d}"
+        "format": "{:%y/%m/%d - %H:%M}"
     },
     
     "cpu": {
         "format": "{usage:02}%   ",
         "tooltip": false,
-	"interval": 2
+        "interval": 2
     },
     
     "temperature": {
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
         "critical-threshold": 75,
-	"interval": 2,
+        "interval": 2,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""],
     	"tooltip": false
-	},
+    },
     
     "battery": {
         "states": {
@@ -113,7 +111,7 @@
         "format-plugged": "{capacity}% {icon} ",
         "format-alt": "{time} {icon}  {power:2.1f}W",
         "design-capacity": true,
-		// "format-good": "", // An empty format will hide the module
+        // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
         "interval": 1
@@ -126,8 +124,8 @@
         "format-linked": "{ifname} (No IP)  ",
         "format-disconnected": "Disconnected ⚠",
         "on-click": "iwgtk",
-		//"format-alt": "{ifname}: {ipaddr}/{cidr}",
-		"interval": 2
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interval": 2
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
