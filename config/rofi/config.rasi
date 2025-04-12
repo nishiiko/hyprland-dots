@@ -17,7 +17,7 @@ configuration {
 
 window {
 	background-color: @main-bg;
-	border: 4px;
+	border: 6px;
 	border-color: @border;
 	border-radius: 30px;
 	height: 550px;
