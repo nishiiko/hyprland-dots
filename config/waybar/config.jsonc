@@ -53,8 +53,7 @@
         "icon-theme": "Colloid-Purple-Dark",
         "tooltip-format": "{title}",
         "on-click": "activate",
-        "on-click-middle": "close",
-        "sort-by-app-id": true
+        "on-click-middle": "close"
     },
 
     "keyboard-state": {
