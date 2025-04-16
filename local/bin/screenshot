@@ -59,7 +59,7 @@ case $1 in
     ;;
 esac
 
-paplay $HOME/.config/swaync/ding.wav --volume=35000 &
+paplay $HOME/.config/swaync/ding.wav --volume=45000 &
 wl-copy < $filename &
 rm -f $lockpath
 rm -f $tmpregion
