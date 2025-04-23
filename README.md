@@ -7,7 +7,7 @@ i like gentoo
 hyprland (duh)\
 hyprlock\
 hyprpaper\
-alacritty\
+foot\
 swaync\
 waybar\
 rofi\
