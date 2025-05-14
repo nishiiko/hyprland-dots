@@ -15,14 +15,11 @@ case $1 in
         
         while ! pgrep -x "hyprpicker" > /dev/null; do
             hyprpicker -r -z &
-            HYPRPICKER_PID=$!
         done
 
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
-        nohup >&/dev/null magick $tmpregion -shave 4x4 PNG:$filename &
-        
-        kill $HYPRPICKER_PID
-        wait
+        pkill hyprpicker
+        magick $tmpregion -shave 4x4 PNG:$filename
 
         if [ ! -f "$filename" ]; then
             rm -f $lockpath
@@ -63,5 +60,3 @@ paplay $HOME/.config/swaync/ding.wav --volume=45000 &
 wl-copy < $filename &
 rm -f $lockpath
 rm -f $tmpregion
-
-killall -e hyprpicker 2> /dev/null
