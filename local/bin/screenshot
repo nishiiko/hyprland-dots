@@ -18,7 +18,7 @@ case $1 in
         done
 
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
-        pkill hyprpicker
+        killall hyprpicker
         magick $tmpregion -shave 4x4 PNG:$filename
 
         if [ ! -f "$filename" ]; then
