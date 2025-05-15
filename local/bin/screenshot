@@ -2,7 +2,7 @@
 filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
 lockpath=$HOME/.screenshotLock 
 tmpregion=$HOME/.tmpRegion
-monitor=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+monitor=$(hyprctl activeworkspace -j | jq -r '.monitor')
 
 if [ -f $lockpath ]; then
     exit
