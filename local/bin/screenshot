@@ -12,32 +12,24 @@ echo "if youre reading this, just delete this file" > $lockpath
 
 case $1 in
     --region)
-        
-        while ! pgrep -x "hyprpicker" > /dev/null; do
+		type="Region"
+        until pgrep -x "hyprpicker" > /dev/null; do
             hyprpicker -r -z &
         done
 
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
         killall hyprpicker
         magick $tmpregion -shave 4x4 PNG:$filename
-
-        if [ ! -f "$filename" ]; then
-            rm -f $lockpath
-            rm -f $tmpregion
-            exit
-        fi
-	    
-        $(notify-send "Region Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
         ;;
 
     --display)
-        grim -l 1 -o "$monitor" $filename
-	    $(notify-send "$monitor Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
+        type="$monitor"
+		grim -l 1 -o "$monitor" $filename
         ;;
 
-    --all)  
+    --all)
+		type="Desktop"
         grim -l 1 $filename
-        $(notify-send "Desktop Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &  
         ;;
 
     *)
@@ -51,12 +43,14 @@ case $1 in
     why are you using this in your terminal anyways
     	"
         notify-send "Screenshot Error" "Flags written incorrectly"
-        rm -f $lockpath 
-        exit
     ;;
 esac
 
-paplay $HOME/.config/swaync/ding.wav --volume=65535 &
-wl-copy < $filename &
 rm -f $lockpath
 rm -f $tmpregion
+
+if [ -f "$filename" ]; then
+	wl-copy < $filename &
+	$(notify-send "$type Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
+	paplay $HOME/.config/swaync/ding.wav --volume=65535 &
+fi
