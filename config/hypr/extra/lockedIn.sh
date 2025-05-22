@@ -25,7 +25,7 @@ elif [ "$lockedIn" = 0 ] ; then
         #keyword decoration:blur:enabled 1;\
         keyword general:gaps_in 7;\
         keyword general:gaps_out 15;\
-        keyword general:border_size 4;\
+        keyword general:border_size 6;\
         keyword decoration:rounding 16;\
         keyword plugin:hyprbars:bar_height 30;\
         keyword plugin:hyprbars:bar_padding 14;\
