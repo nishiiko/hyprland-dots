@@ -13,10 +13,12 @@ echo "if youre reading this, just delete this file" > $lockpath
 case $1 in
     --region)
 		type="Region"
-        until pgrep -x "hyprpicker" > /dev/null; do
-            hyprpicker -r -z &
-            sleep 0.1
-        done
+        if command -v "hyprpicker"; then
+            until pgrep -x "hyprpicker" > /dev/null; do
+                hyprpicker -r -z &
+                sleep 0.1
+            done
+        fi
 
         grim -l 1 -g "$(slurp -d -c ffffffff -b 00000088 -w 3)" $tmpregion 
         killall hyprpicker
