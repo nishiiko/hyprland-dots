@@ -17,7 +17,7 @@
     ],
     "modules-right": [
         "privacy",
-        "battery",
+        "group/hardware",
         "pulseaudio",
         "tray",
         "clock"
@@ -43,7 +43,7 @@
         "orientation": "horizontal",
         "modules": [
             "cpu",
-            "temperature"
+            "battery"
         ]
     },
 	
@@ -81,12 +81,12 @@
     
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%y/%m/%d - %H:%M}"
+        "interval": 1,
+		"format": "{:%y/%m/%d - %H:%M:%S}"
     },
     
     "cpu": {
         "format": "{usage:02}%   ",
-        "tooltip": false,
         "interval": 2
     },
     
