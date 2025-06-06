@@ -122,7 +122,7 @@
         "tooltip-format": "{ifname} via {gwaddr}  ",
         "format-linked": "{ifname} (No IP)  ",
         "format-disconnected": "Disconnected ⚠",
-        "on-click": "iwgtk",
+        "on-click": "killall iwgtk;iwgtk",
         //"format-alt": "{ifname}: {ipaddr}/{cidr}",
         "interval": 2
     },
