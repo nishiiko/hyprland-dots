@@ -7,10 +7,11 @@ configuration {
 	history: false;
 	case-sensitivity: false;
 	sorting-method: "fzf";
+	matching: "fuzzy";
 	hide-scrollbar: true;
-	terminal: "kitty";
+	terminal: "foot";
 	sidebar-mode: true;
-	hover-select: false;
+	hover-select: true;
 }
 
 @theme "~/.config/rofi/colours.rasi"
@@ -19,7 +20,7 @@ window {
 	background-color: @main-bg;
 	border: 6px;
 	border-color: @border;
-	border-radius: 30px;
+	border-radius: 32px;
 	height: 550px;
 	width: 1200px;
 }
@@ -96,6 +97,7 @@ element-text {
 	padding: 0px 10px;
 	text-color: @passive-text;
 	background-color: transparent;
+	highlight: #ffaa00;
 }
 
 element-text {
@@ -108,5 +110,5 @@ element.selected {
 }
 element-text.selected {
 	text-color: @active-text;
+	highlight: underline bold #aaffaa;
 }
-
