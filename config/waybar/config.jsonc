@@ -105,9 +105,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon} ",
-        "format-charging": "{capacity}% {icon} ",
-        "format-plugged": "{capacity}% {icon} ",
+        "format": " {capacity}% {icon} ",
+        "format-charging": " {capacity}% {icon} ",
+        "format-plugged": " {capacity}% {icon} ",
         "format-alt": "{time} {icon}  {power:2.1f}W",
         "design-capacity": true,
         // "format-good": "", // An empty format will hide the module
