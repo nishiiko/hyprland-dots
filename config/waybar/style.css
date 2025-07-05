@@ -35,7 +35,7 @@ tooltip {
 
 
 window#waybar {
-    background-color: alpha(@bar-bg, 0.25);
+    background-color: alpha(@bar-bg, 0.85);
 }
 
 button {

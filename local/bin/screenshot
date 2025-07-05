@@ -5,51 +5,52 @@ tmpregion=$HOME/.tmpRegion
 monitor=$(hyprctl activeworkspace -j | jq -r '.monitor')
 
 if [ -f $lockpath ]; then
-	echo "$lockpath found, remove this file"
-	exit
+    echo "$lockpath found, remove this file"
+    exit
 fi
 
 echo "if youre reading this, just delete this file" > $lockpath
 
 case $1 in
     --region)
-		type="Region"
-        if command -v "hyprpicker" > /dev/null; then
+        type="Region"
+
+        if which hyprpicker > /dev/null; then
             until pgrep -x "hyprpicker" > /dev/null; do
                 hyprpicker -r -z &
-			done
+            done
         fi
 
-		area=$(slurp -d -c ffffffff -b 00000088 -w 3)
-		killall hyprpicker &>/dev/null
-		
-		if [ ! -z "$area" ]; then
-			grim -l 1 -g "$area" $tmpregion 
-			magick $tmpregion -shave 4x4 PNG:$filename &>/dev/null
-		fi
-		;;
+        area=$(slurp -d -c ffffffff -b 00000088 -w 3)
+
+        if [ ! -z "$area" ]; then
+            grim -l 1 -g "$area" $tmpregion 
+            magick $tmpregion -shave 4x4 PNG:$filename
+        fi
+        killall hyprpicker slurp &>/dev/null
+        ;;
 
     --display)
         type="$monitor"
-		grim -l 1 -o "$monitor" $filename
+        grim -l 1 -o "$monitor" $filename
         ;;
 
     --all)
-		type="Desktop"
+        type="Desktop"
         grim -l 1 $filename
         ;;
 
     *)
         echo "
     Flags:
-        
+
         --region (Screenshots a selected region)
         --display (Screenshots current active monitor)
         --all (Screenshots all monitors/entire desktop)
-        
+
     why are you using this in your terminal anyways
-    	"
-        notify-send "Screenshot Error" "Flags written incorrectly"
+        "
+        notify-send "Screenshot Error" "Flag written incorrectly"
     ;;
 esac
 
@@ -57,9 +58,9 @@ rm -f $lockpath
 rm -f $tmpregion
 
 if [ -f "$filename" ]; then
-	wl-copy < $filename &
-	$(notify-send "$type Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
-	paplay $HOME/.config/swaync/ding.wav --volume=65535 &
+    wl-copy < $filename &
+    $(notify-send "$type Screenshot" "Saved to $filename" --icon=$filename -a Screenshot -u critical -A "xdg-open $filename=View screenshot") &
+    paplay $HOME/.config/swaync/ding.wav --volume=65535 &
 fi
 
 exit

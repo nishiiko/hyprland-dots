@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-if ! echo $(ls -l /sbin/init) | grep systemd; then
-    killall wireplumber pipewire-pulse pipewire
+if ! grep -r systemd /sbin/init; then
+    pkill -x pipewire\|pipewire-pulse\|wireplumber
 
+    pidwait -x pipewire\|pipewire-pulse\|wireplumber
+    
     pipewire &
     pipewire-pulse &
 
