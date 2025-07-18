@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-    // "height": 60, // Waybar height (to be removed for auto height)
+    "height": 56, // Waybar height (to be removed for auto height)
     // "width": 1920, // Waybar width
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "spacing": 4, // Gaps between modules (4px)
