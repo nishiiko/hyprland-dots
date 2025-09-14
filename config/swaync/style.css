@@ -5,7 +5,7 @@
 @define-color noti-bg-darker rgb(38, 38, 38);
 @define-color noti-bg-hover rgba(39, 45, 75, 0.9);
 @define-color noti-bg-hover-opaque rgb(59, 65, 95);
-@define-color noti-bg-focus rgba(68, 68, 68, 0.6);
+@define-color noti-bg-focus rgba(68, 68, 68, 0);
 @define-color noti-close-bg rgba(255, 255, 255, 0.1);
 @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
 @define-color text-color rgb(255, 255, 255);
@@ -267,7 +267,7 @@
   /* The Control Center which contains the old notifications + widgets */
   background: @cc-bg;
   color: @text-color;
-  border-radius: 16px;
+  border-radius: 16px 0px 0px 16px;
   padding: 20px;
 }
 
@@ -350,7 +350,7 @@
 }
 
 .widget-dnd > switch slider {
-  background: @noti-bg-hover;
+  background: white;
   border-radius: 12px;
 }
 
