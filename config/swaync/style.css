@@ -3,8 +3,8 @@
 @define-color noti-bg rgba(39, 45, 75, 0.85);
 @define-color noti-bg-opaque rgb(39, 45, 75);
 @define-color noti-bg-darker rgb(38, 38, 38);
-@define-color noti-bg-hover rgba(39, 45, 75, 0.9);
-@define-color noti-bg-hover-opaque rgb(59, 65, 95);
+@define-color noti-bg-hover rgba(19, 25, 55, 0.9);
+@define-color noti-bg-hover-opaque rgb(19, 25, 55);
 @define-color noti-bg-focus rgba(68, 68, 68, 0);
 @define-color noti-close-bg rgba(255, 255, 255, 0.1);
 @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
@@ -193,18 +193,19 @@
 
 .notification-row .notification-background .notification .notification-action {
   /* The alternative actions below the default action */
-  border-top: 1px solid @noti-border-color;
-  border-radius: 0px;
+  border-top: 0;
   border-right: 1px solid @noti-border-color;
+  border-radius: 16px;
+  padding: 6px;
 }
 
 .notification-row .notification-background .notification .notification-action:first-child {
   /* add bottom border radius to eliminate clipping */
-  border-bottom-left-radius: 12px;
+  border-bottom-left-radius: 16px;
 }
 
 .notification-row .notification-background .notification .notification-action:last-child {
-  border-bottom-right-radius: 12px;
+  border-bottom-right-radius: 16px;
   border-right: none;
 }
 
@@ -212,6 +213,10 @@
   /* Styling only for Grouped Notifications */
 }
 
+.notification-group:focus {
+  background: transparent;
+  outline: 0;
+}
 .notification-group.low {
   /* Low Priority Group */
 }
@@ -282,7 +287,7 @@
 }
 
 .control-center .control-center-list .notification {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .control-center .control-center-list .notification .notification-default-action,
