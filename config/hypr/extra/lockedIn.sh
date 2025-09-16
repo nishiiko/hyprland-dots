@@ -8,6 +8,8 @@ if [ "$lockedIn" = 1 ] ; then
         keyword general:gaps_out 0;\
         keyword general:border_size 0;\
         keyword decoration:rounding 0;\
+        keyword decoration:active_opacity 1;\
+        keyword decoration:inactive_opacity 1;\
         "
     killall waybar
     swaync-client -dn
@@ -20,16 +22,7 @@ if [ "$lockedIn" = 1 ] ; then
     exit
 elif [ "$lockedIn" = 0 ] ; then
     hyprctl keyword animations:enabled 1
-    hyprctl --batch "\
-        keyword decoration:shadow:enabled 1;\
-        #keyword decoration:blur:enabled 1;\
-        keyword general:gaps_in 7;\
-        keyword general:gaps_out 15;\
-        keyword general:border_size 6;\
-        keyword decoration:rounding 16;\
-        keyword plugin:hyprbars:bar_height 30;\
-        keyword plugin:hyprbars:bar_padding 14;\
-    " 
+    hyprctl reload
     notify-send "Dilly-dallying >v<" "gamer time yippeeeeeee" -u "Critical"
     swaync-client -df
     waybar &
