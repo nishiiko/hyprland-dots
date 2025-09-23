@@ -25,7 +25,7 @@ case $1 in
         type="Region"
         freezeGuarantee
 
-        area=$(slurp -d -c ffffffff -b 00000000 -s 88888888 -w 3)
+        area=$(slurp -d -c ffffffff -b 00000088 -s 44444488 -w 3)
         
         if [ ! -z "$area" ]; then
             grim -l 1 -g "$area" $tmpregion 
