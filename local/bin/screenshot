@@ -2,7 +2,7 @@
 filename=$HOME/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png')
 lockdir=/var/tmp/swayScreenshot
 lockpath=/var/tmp/swayScreenshot/lockfile
-tmpregion=/var/tmp/swayScreenshot/tmpRegion
+tmpregion=$(mktemp --tempdir=$lockdir --dry-run)
 monitor=$(hyprctl activeworkspace -j | jq -r '.monitor')
 
 freezeGuarantee() { #i hope its guaranteed at least
