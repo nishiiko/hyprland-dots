@@ -8,12 +8,11 @@
 @import "colours.css";
 
 #wireplumber,
+#connection,
 #pulseaudio,
 #scratchpad,
 #hardware,
 #language,
-#network,
-/* #battery, */
 #privacy,
 #taskbar,
 #clock,
@@ -35,7 +34,7 @@ tooltip {
 
 
 window#waybar {
-    background-color: alpha(@bar-bg, 0.85);
+    background-color: alpha(@bar-bg, 1);
 }
 
 button {
@@ -62,7 +61,7 @@ button:hover {
 #workspaces button.active,
 #workspaces button.focused {
     padding: 0px 20px;
-    margin: 4px -4px;
+    margin: 4px 0px;
     color: alpha(@active-text, 1);
     background-color: @button-hl;
     transition: all 0.3s cubic-bezier(0,0,.2,1)

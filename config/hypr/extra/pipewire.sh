@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
-if ! grep -r systemd /sbin/init; then
-    pkill -x pipewire\|pipewire-pulse\|wireplumber
+# no longer needed since openrc supports user services now
 
-    pidwait -x pipewire\|pipewire-pulse\|wireplumber
-    
-    pipewire &
-    pipewire-pulse &
-
-    sleep 1s
-    wireplumber &
-fi
+#if ! grep -r systemd /sbin/init; then
+#    pkill -x pipewire\|pipewire-pulse\|wireplumber
+#
+#    pidwait -x pipewire\|pipewire-pulse\|wireplumber
+#    
+#    pipewire &
+#    pipewire-pulse &
+#
+#    sleep 1s
+#    wireplumber &
+#fi
 
 paplay --volume=65535 $HOME/.config/hypr/extra/heal.wav &

@@ -12,8 +12,8 @@
             "width": 11
         },
         "bar": {
-            "charElapsed": "=",
-            "charTotal": "-",
+            "char.Elapsed": "=",
+            "char.Total": "-",
             "width": 9
         },
         "percent": {
